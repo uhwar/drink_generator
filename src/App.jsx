@@ -1,6 +1,19 @@
 import { useState } from 'react'
 import './App.css'
 
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+    <p>Count: {count}</p>
+    <button onClick={() => setCount(count + 1)}>Increase</button>
+    </div>
+  );
+
+}
+
+
 function App() {
   const [cocktail, setCocktail] = useState(null)
   const [loading, setLoading] = useState(false)
@@ -28,6 +41,7 @@ function App() {
       {cocktail && (
         <div className="cocktail-info">
           <h2>{cocktail.strDrink}</h2>
+          <Counter />
           <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
           <p><strong>Category:</strong> {cocktail.strCategory}</p>
           <p><strong>Type:</strong> {cocktail.strAlcoholic}</p>
